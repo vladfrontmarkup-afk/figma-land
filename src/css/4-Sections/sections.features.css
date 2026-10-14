@@ -1,7 +1,7 @@
 @layer base {
   .s-features {
-    @apply mt-47 bg-white py-50;
-    @apply sm-laptopm:mt-51 sm-laptopm:pb-137;
+    @apply bg-white py-50;
+    @apply sm-laptopm:pb-137;
   }
 
   .s-features__title {

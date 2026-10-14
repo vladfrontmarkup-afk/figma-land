@@ -4,6 +4,7 @@
 @import "./3-Components/components.feature-card.css";
 @import "./4-Sections/sections.hero.css";
 @import "./4-Sections/sections.features.css";
+@import "./4-Sections/sections.content.css";
 @import "./5-Organisms/organisms.header.css";
 
 @source "../../index.html";

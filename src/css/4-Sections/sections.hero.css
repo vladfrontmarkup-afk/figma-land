@@ -7,7 +7,7 @@
   }
 
   .s-hero__content {
-    @apply pt-[calc(var(--header-offset,107px)+55px)] pb-50 text-center;
+    @apply pt-[calc(var(--header-offset,107px)+55px+45px)] pb-50 text-center;
     @apply sm-laptopm:pt-[calc(var(--header-offset,119px)+128px)] sm-laptopm:pb-85;
   }
 

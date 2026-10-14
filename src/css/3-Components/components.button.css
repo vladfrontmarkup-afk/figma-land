@@ -12,12 +12,6 @@
       @apply cursor-not-allowed opacity-50;
     }
 
-    @media (hover: hover) {
-      &:hover:not(:disabled):not([aria-disabled="true"]) {
-        @apply opacity-80;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       @apply transition-none;
     }
@@ -32,21 +26,32 @@
   }
 
   .c-button__primary {
-    @apply border-0 bg-primary text-white;
+    @apply border-0 bg-secondary text-white;
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-[#112d57] text-secondary;
+      }
+    }
   }
 
   .c-button__light {
     @apply border-0 bg-white text-[#112d57];
     @media (hover: hover) {
       &:hover:not(:disabled):not([aria-disabled="true"]) {
-        @apply bg-[#112d57] text-white opacity-100 shadow-[0_8px_24px_rgba(17,45,87,0.3)];
+        @apply bg-[#112d57] text-white shadow-[0_8px_24px_rgba(17,45,87,0.3)];
       }
     }
   }
 
-  /* The exported secondary instances retain the primary fill. */
   .c-button__secondary {
-    @apply border border-solid border-[#30d7ba] bg-primary px-45 py-17 text-[#30d7ba];
+    @apply border border-solid border-[#30d7ba] bg-white px-45 py-17 text-[#30d7ba];
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-[#30d7ba] text-[#112d57];
+      }
+    }
   }
 
   .c-button__outline {
@@ -54,13 +59,19 @@
 
     @media (hover: hover) {
       &:hover:not(:disabled):not([aria-disabled="true"]) {
-        @apply bg-white text-[#112d57] opacity-100;
+        @apply bg-white text-[#112d57];
       }
     }
   }
 
   .c-button__ghost {
     @apply border-0 bg-transparent text-white;
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-white text-[#112d57];
+      }
+    }
   }
 
   .c-button__shadow {
@@ -82,30 +93,18 @@
     @apply px-82;
   }
 
-  /* Mobile feature CTAs keep their design width within the available space. */
-  .c-button__wide {
-    @apply w-338;
-    @apply laptop:w-auto;
-  }
-
-  .c-button__wide-secondary {
-    @apply w-343;
-    @apply laptop:w-auto;
-  }
-
-  /* The final mobile CTA uses Roboto and a taller button. */
-  .c-button__large {
-    @apply min-h-76 w-294 px-30 py-30 font-secondary;
-    @apply laptop:min-h-52 laptop:w-auto laptop:px-46 laptop:py-18 laptop:font-default;
-  }
-
-  .c-button__secondary.c-button__large {
-    @apply w-281 px-29 py-29;
-    @apply laptop:w-auto laptop:px-45 laptop:py-17;
+  .c-button__content {
+    @apply px-36;
   }
 
   .c-button__subscribe {
     @apply min-h-62 w-full rounded-[6px] border-0 bg-[#2271ef] px-30 py-23 text-white;
     @apply laptop:min-h-52 laptop:w-auto laptop:rounded-[39px] laptop:bg-primary laptop:px-46 laptop:py-18;
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-[#112d57] text-secondary;
+      }
+    }
   }
 }

@@ -20,8 +20,7 @@
   .c-button__primary,
   .c-button__light,
   .c-button__secondary,
-  .c-button__outline,
-  .c-button__ghost {
+  .c-button__outline {
     @apply min-h-52 rounded-[39px] px-46 py-18;
   }
 
@@ -56,16 +55,6 @@
 
   .c-button__outline {
     @apply border border-solid border-white bg-transparent px-45 py-17 text-white;
-
-    @media (hover: hover) {
-      &:hover:not(:disabled):not([aria-disabled="true"]) {
-        @apply bg-white text-[#112d57];
-      }
-    }
-  }
-
-  .c-button__ghost {
-    @apply border-0 bg-transparent text-white;
 
     @media (hover: hover) {
       &:hover:not(:disabled):not([aria-disabled="true"]) {

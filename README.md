@@ -1,81 +1,70 @@
-# Tailwind Starter
+# Figma Land
 
-A multi-page HTML, CSS and JavaScript starter powered by Tailwind CSS, Vite and jQuery.
+A responsive, single-page landing page built with HTML, Tailwind CSS 4 and vanilla JavaScript, bundled with Vite. The design source is the local Figma export in `figma/`.
 
 ## Requirements
 
-- Node.js 24 LTS recommended; Node.js 22.12+ within the 22.x release line is also supported.
-- npm
+- Node.js 22.12+ within the 22.x release line, or Node.js 24+.
+- npm.
 
-## Getting Started
+## Development
 
-Install dependencies:
+Install the locked dependencies and start Vite:
 
 ```sh
 npm ci
+npm run dev
 ```
 
-Start the development server:
-
-```sh
-npm run watch
-```
-
-Open [http://localhost:8001](http://localhost:8001). No initial build is required. For other devices on the same network, use the Network URL printed in the terminal.
-
-## Production Build
-
-```sh
-npm run build
-```
-
-Deploy the complete contents of `dist/` to a static web server. Node.js is not required on the production server.
-
-Generated assets are grouped into `assets/css`, `assets/js`, `assets/images`,
-`assets/fonts`, `assets/media`, and `assets/files` (other file types). Only used
-folders are created. Images under `src/images/` and fonts under `src/fonts/`
-keep their subfolders, for example `src/images/team/avatar.webp` becomes
-`dist/assets/images/team/avatar-<hash>.webp`. Referenced small assets are emitted
-as files instead of being embedded in CSS or JavaScript. Only assets referenced
-by the site are included; files in `public/` are copied unchanged to `dist/`.
-
-Names retain a readable basename and a content hash to invalidate browser caches
-when files change. CSS and JavaScript are bundled, so the output is not a copy of
-every source file. Vite updates the HTML, CSS and JavaScript references automatically;
-do not rename generated files manually.
-
-To preview the build locally:
-
-```sh
-npm run preview
-```
-
-Open [http://localhost:8002](http://localhost:8002). Serve the build over HTTP or HTTPS rather than opening HTML files via `file://`.
+Open [http://localhost:8001](http://localhost:8001). Vite updates the page when source files change; no initial build is required. The Network URL printed in the terminal can be used from another device on the same network.
 
 ## Scripts
 
-| Command | Description |
+| Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the development server. |
-| `npm run watch` | Start the development server with automatic updates. |
-| `npm run build` | Create an optimized production build. |
+| `npm run watch` | Alias for the development server. |
+| `npm run build` | Build the landing page into `dist/`. |
 | `npm run build:watch` | Rebuild production output when source files change. |
-| `npm run preview` | Serve the existing production build locally. |
-| `npm run check` | Check entry/config JavaScript syntax and build the project. |
+| `npm run preview` | Serve the production build at [http://localhost:8002](http://localhost:8002). |
+| `npm run check` | Check entry/config JavaScript syntax and run the production build. |
 
-## Features
+## Structure
 
-- Tailwind CSS 4 with CSS-based configuration and Preflight.
-- Vite development server with hot module replacement.
-- Multiple HTML entry points with page-specific CSS and JavaScript.
-- Shared base styles, local Inter fonts and reusable components.
-- jQuery available as a module and through browser globals.
-- Relative production asset paths for deployment in subdirectories.
+- `index.html`: the only page, containing the header, hero, features, content sections, pricing, subscription form and footer.
+- `src/css/style.css`: the page stylesheet and component imports.
+- `src/css/common.css`: Tailwind, theme, fonts, base elements and utilities.
+- `src/css/1-Settings/`: theme and local font declarations.
+- `src/css/2-Elements/`: base element styles.
+- `src/css/3-Components/`: shared buttons, links, input, cards and animated gradient.
+- `src/css/4-Sections/`: section layouts.
+- `src/css/5-Organisms/`: header and footer styles.
+- `src/css/6-Utilities/`: container and numeric text-size utilities.
+- `src/js/app.js`: page initialization and anchor navigation.
+- `src/js/components/`: mobile header, gradient animation and subscription form behavior.
+- `src/images/`: WebP assets and SVG icon sprites.
+- `src/fonts/`: local Poppins and Roboto WOFF2 files and their licenses.
+- `vite.config.js`: development ports, the HTML entry point and production asset paths.
 
-## Browser Support
+## Behavior
 
-Targets Chrome 111+, Safari 16.4+ and Firefox 128+. Individual CSS features may require newer browser versions.
+- The fixed header shrinks on scroll. Its mobile menu supports Escape, keyboard focus management, scroll locking and an inert page background.
+- Anchor links account for the header height and scroll without adding a hash to the URL.
+- The hero and highlighted feature card share an animated gradient. Animation pauses outside the viewport or while the page is inactive, resumes without catching up, and respects reduced-motion and data-saving preferences.
+- Buttons and links have visible keyboard focus states and smooth hover transitions.
+- The footer embeds an interactive Google Map of San Francisco with lazy loading.
+- The subscription form validates email addresses locally. A subscription service is not connected; submitting a valid address displays an unavailable message and does not send the address.
+- Pricing order buttons and social profile links remain placeholders. Contact details should be replaced with the site's final details before publishing.
 
-## Dependencies
+## Production
 
-Dependency versions are pinned and recorded in `package-lock.json`. Use `npm ci` for reproducible installations. Run `npm outdated` to review updates and `npm audit` to check for known vulnerabilities.
+```sh
+npm run check
+npm run preview
+```
+
+Deploy the complete contents of `dist/` to a static web server. Node.js is not needed on the hosting server. Serve the build over HTTP or HTTPS rather than opening HTML through `file://`.
+
+Vite bundles CSS and JavaScript and rewrites referenced asset URLs. Output is grouped under `assets/css`, `assets/js`, `assets/images` and `assets/fonts`; image and font subfolders are preserved. Filenames include content hashes for cache invalidation. Relative asset paths support deployment in subdirectories.
+
+There is one HTML entry point. Dependencies are pinned in `package-lock.json`; use `npm ci` for reproducible installations. Keep the font license files when distributing the site.

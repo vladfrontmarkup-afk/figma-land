@@ -1,0 +1,28 @@
+@layer base {
+  .s-features {
+    @apply mt-47 bg-white py-50;
+    @apply sm-laptopm:mt-51 sm-laptopm:pb-137;
+  }
+
+  .s-features__title {
+    @apply mx-auto p-10 text-center text-[clamp(38px,12vw,46px)] font-medium leading-[1.23913] tracking-[0.2px] text-black;
+    @apply sm-laptopm:max-w-785 sm-laptopm:text-46 sm-laptopm:leading-[57px];
+  }
+
+  .s-features__cards {
+    @apply mt-35 flex flex-col items-center gap-64;
+    @apply sm-laptopm:mt-90 sm-laptopm:flex-row sm-laptopm:gap-31;
+
+    > .c-feature-card {
+      @variant sm-laptopm {
+        flex: 1 1 calc((100% - 67px) / 3);
+      }
+    }
+
+    > .c-feature-card__highlight {
+      @variant sm-laptopm {
+        flex-basis: calc((100% - 52px) / 3);
+      }
+    }
+  }
+}

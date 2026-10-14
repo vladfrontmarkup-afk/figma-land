@@ -1,21 +1,24 @@
 @layer base {
   .s-hero {
+    --hero-gradient-duration: 4s;
     @apply relative isolate overflow-hidden text-white;
     background: linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
 
     &::before {
-      @apply pointer-events-none absolute -inset-[25%] -z-10;
+      @apply pointer-events-none absolute top-1/2 left-1/2 -z-10;
       content: "";
+      width: var(--hero-gradient-size, 200vmax);
+      height: var(--hero-gradient-size, 200vmax);
       background:
         radial-gradient(ellipse at 15% 75%, #37bda6 0%, transparent 60%),
         radial-gradient(ellipse at 85% 25%, #cb1ae8 0%, transparent 60%),
         linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
-      transform: translate3d(-10%, 5%, 0) rotate(-8deg) scale(1.15);
-      animation: hero-gradient 12s ease-in-out infinite alternate paused;
-    }
-
-    &.s-hero--animated::before {
-      animation-play-state: running;
+      translate: -52% -48%;
+      rotate: -8deg;
+      scale: 1.03;
+      animation:
+        hero-gradient var(--hero-gradient-duration) ease-in-out infinite alternate paused,
+        hero-gradient-rotation calc(var(--hero-gradient-duration) * 4) linear infinite paused;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -31,17 +34,18 @@
   }
 
   .s-hero__title {
-    @apply mx-auto max-w-310 text-[clamp(38px,12vw,46px)] font-medium leading-[1.23913] tracking-[0.2px] text-white;
+    @apply mx-auto text-[clamp(38px,12vw,46px)] font-medium leading-[1.23913] tracking-[0.2px] text-white;
     @apply sm-laptopm:max-w-660 sm-laptopm:text-55 sm-laptopm:font-black sm-laptopm:leading-[65.5px];
 
-    > span {
-      @apply block;
-    }
   }
 
-  .s-hero__title-break {
-    @apply block;
-    @apply sm-laptopm:inline;
+  .s-hero__break-mobile {
+    @apply mobile:hidden;
+  }
+
+  .s-hero__break {
+    @apply mobile:hidden;
+    @apply sm-laptopm:block;
   }
 
   .s-hero__description {
@@ -75,13 +79,21 @@
 
   @keyframes hero-gradient {
     0% {
-      transform: translate3d(-10%, 5%, 0) rotate(-8deg) scale(1.15);
+      translate: -52% -48%;
+      scale: 1.03;
     }
     50% {
-      transform: translate3d(12%, -8%, 0) rotate(10deg) scale(1.25);
+      translate: -48% -52%;
+      scale: 1.06;
     }
     100% {
-      transform: translate3d(-8%, 10%, 0) rotate(-14deg) scale(1.2);
+      translate: -51% -49%;
+      scale: 1.03;
     }
+  }
+
+  @keyframes hero-gradient-rotation {
+    from { rotate: -8deg; }
+    to { rotate: 352deg; }
   }
 }

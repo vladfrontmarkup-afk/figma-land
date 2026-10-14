@@ -1,0 +1,86 @@
+@layer base {
+  .c-feature-card {
+    @apply flex min-w-0 w-full flex-col items-center gap-10 rounded-[10px] bg-white px-[clamp(20px,10vw,50px)] py-40 text-center shadow-[inset_0_0_0_1px_#dedede,0_4px_31px_0_rgba(0,0,0,0.15)];
+    @apply sm-laptopm:w-auto sm-laptopm:max-w-none sm-laptopm:items-start sm-laptopm:px-20 sm-laptopm:text-left;
+    @apply desktop:px-50;
+
+  }
+
+  .c-feature-card__icon {
+    @apply flex shrink-0 items-center justify-center px-4 py-2 text-secondary;
+    @apply sm-laptopm:py-20;
+
+    svg {
+      @apply block shrink-0;
+    }
+  }
+
+  .c-feature-card__icon-support {
+    @apply p-3;
+    @apply sm-laptopm:px-3 sm-laptopm:py-20;
+
+    svg {
+      @apply sm-laptopm:h-60 sm-laptopm:w-60;
+    }
+  }
+
+  .c-feature-card__icon-collaborative {
+    @apply px-1 py-3;
+    @apply sm-laptopm:py-20;
+  }
+
+  .c-feature-card__title {
+    @apply p-10 text-[clamp(24px,6vw,30px)] font-bold leading-[1.1] tracking-[0.1px] text-black;
+    @apply sm-laptopm:text-30;
+  }
+
+  .c-feature-card__description {
+    @apply p-10 text-18 font-normal leading-[27px] tracking-[0.2px] text-[#5c5c5c];
+    @apply sm-laptopm:max-w-301;
+
+    * {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .c-feature-card__link {
+    @apply relative p-10 text-15 font-normal leading-[27px] tracking-[0.2px] text-secondary;
+
+    &::after {
+      @apply absolute right-10 bottom-8 left-10 h-1 bg-current transition-transform duration-300;
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    &:focus-visible {
+      @apply outline-2 outline-offset-2 outline-current;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &::after {
+        @apply transition-none;
+      }
+    }
+  }
+
+  .c-feature-card__highlight {
+    background: linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
+    @apply sm-laptopm:max-w-none;
+
+
+    .c-feature-card__icon,
+    .c-feature-card__title,
+    .c-feature-card__description,
+    .c-feature-card__link {
+      @apply text-white;
+    }
+  }
+}

@@ -13,6 +13,9 @@ export function initHeader() {
   let closeTimer;
   let scrollPending = false;
   header.classList.add('o-header--enhanced');
+  nav.querySelectorAll('.o-header__link').forEach((link, index) => {
+    link.style.setProperty('--menu-order', index);
+  });
 
   const measureHeader = () => {
     const height = inner.getBoundingClientRect().height;

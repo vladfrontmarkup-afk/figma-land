@@ -19,7 +19,8 @@
 
   .o-header__inner {
     @apply relative flex items-center justify-between gap-12 py-[27.5px] transition-[padding] duration-300;
-    @apply sm-laptopm:gap-24 sm-laptopm:px-30 sm-laptopm:py-30;
+    @apply sm-laptopm:gap-18 sm-laptopm:px-30 sm-laptopm:py-30;
+    @apply desktop:gap-24;
   }
 
   .o-header__logo {
@@ -72,7 +73,8 @@
     @apply invisible absolute top-full left-[-20px] w-[calc(100%+40px)] flex flex-col items-center gap-24 overflow-y-auto overscroll-contain px-24 py-40 opacity-0;
     bottom: calc(100% - 100dvh);
     transition: opacity 300ms ease, visibility 0s linear 300ms;
-    @apply sm-laptopm:visible sm-laptopm:static sm-laptopm:inset-auto sm-laptopm:min-w-0 sm-laptopm:w-auto sm-laptopm:flex-1 sm-laptopm:flex-row sm-laptopm:flex-wrap sm-laptopm:justify-center sm-laptopm:gap-x-31 sm-laptopm:gap-y-0 sm-laptopm:overflow-visible sm-laptopm:bg-transparent sm-laptopm:p-0 sm-laptopm:opacity-100;
+    @apply sm-laptopm:visible sm-laptopm:static sm-laptopm:inset-auto sm-laptopm:min-w-0 sm-laptopm:w-auto sm-laptopm:flex-1 sm-laptopm:flex-row sm-laptopm:flex-wrap sm-laptopm:justify-center sm-laptopm:gap-x-14 sm-laptopm:gap-y-0 sm-laptopm:overflow-visible sm-laptopm:bg-transparent sm-laptopm:p-0 sm-laptopm:opacity-100;
+    @apply desktop:gap-x-31;
 
     @variant sm-laptopm {
       transition: none;
@@ -81,7 +83,8 @@
 
   .o-header__link {
     @apply shrink-0 p-10 text-24 font-normal leading-[27px] tracking-[0.2px] text-white;
-    @apply sm-laptopm:text-15;
+    @apply sm-laptopm:text-14;
+    @apply desktop:text-15;
   }
 
   .o-header--enhanced .o-header__link {

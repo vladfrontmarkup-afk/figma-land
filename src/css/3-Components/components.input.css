@@ -1,0 +1,18 @@
+@layer base {
+  .c-input {
+    @apply block min-w-0 w-full rounded-[7px] border border-solid border-[#d0d0d0] bg-[#efefef] px-[clamp(20px,9.18vw,48px)] py-15 font-secondary text-15 font-bold leading-[24px] text-[#112d57] transition-[border-color,background-color] duration-300;
+    @apply sm-laptopm:rounded-[6px] sm-laptopm:px-28 sm-laptopm:py-13;
+
+    &::placeholder {
+      @apply text-[#8895aa] opacity-100;
+    }
+
+    &:focus-visible {
+      @apply border-secondary bg-white outline-2 outline-offset-2 outline-[#112d57];
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      @apply transition-none;
+    }
+  }
+}

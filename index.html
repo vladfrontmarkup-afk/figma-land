@@ -257,6 +257,28 @@
           </div>
         </div>
       </section>
+      <section class="s-subscribe" id="subscribe" aria-labelledby="subscribe-title">
+        <div class="container">
+          <div class="s-subscribe__inner">
+            <div class="s-subscribe__text">
+              <h2 class="s-subscribe__title" id="subscribe-title">SUBSCRIBE</h2>
+              <div class="s-subscribe__description" id="subscribe-description">
+                <p>Subscribe to get exclusive news &amp; offer</p>
+              </div>
+            </div>
+            <form class="s-subscribe__form js--subscribe-form" method="post" aria-describedby="subscribe-description">
+              <div class="s-subscribe__fields">
+                <div class="s-subscribe__field">
+                  <label class="sr-only" for="subscribe-email">Email address</label>
+                  <input class="c-input" id="subscribe-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required>
+                </div>
+                <button class="c-button c-button__subscribe" type="submit">Subscribe</button>
+              </div>
+              <div class="s-subscribe__status js--subscribe-status" role="status" hidden></div>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

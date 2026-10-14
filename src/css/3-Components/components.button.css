@@ -98,8 +98,8 @@
   }
 
   .c-button__subscribe {
-    @apply min-h-62 w-full rounded-[6px] border-0 bg-[#2271ef] px-30 py-23 text-white;
-    @apply laptop:min-h-52 laptop:w-auto laptop:rounded-[39px] laptop:bg-primary laptop:px-46 laptop:py-18;
+    @apply min-h-62 w-full rounded-[6px] border-0 bg-secondary px-30 py-23 text-white;
+    @apply sm-laptopm:min-h-52 sm-laptopm:w-auto sm-laptopm:rounded-[39px] sm-laptopm:px-46 sm-laptopm:py-18 sm-laptopm:uppercase;
 
     @media (hover: hover) {
       &:hover:not(:disabled):not([aria-disabled="true"]) {

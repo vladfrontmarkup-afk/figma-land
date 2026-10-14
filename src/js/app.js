@@ -2,9 +2,11 @@ import '../css/style.css';
 import { initHeader } from './components/header.js';
 import { initHero } from './components/hero.js';
 import { initAnimatedGradient } from './components/animated-gradient.js';
+import { initSubscribe } from './components/subscribe.js';
 
 initHeader();
 initHero();
+initSubscribe();
 document.querySelectorAll('.js--feature-gradient').forEach((card) => {
   initAnimatedGradient(card, { overscan: 2 });
 });

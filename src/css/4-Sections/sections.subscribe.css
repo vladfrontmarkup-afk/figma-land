@@ -1,0 +1,44 @@
+@layer base {
+  .s-subscribe {
+    @apply border-t border-solid border-[#cdcdcd] bg-white py-62;
+  }
+
+  .s-subscribe__inner {
+    @apply flex flex-col items-center gap-59;
+  }
+
+  .s-subscribe__text {
+    @apply flex w-full max-w-406 flex-col gap-7 text-center;
+  }
+
+  .s-subscribe__title {
+    @apply p-10 text-[clamp(38px,10vw,46px)] font-medium leading-[1.23913] tracking-[0.2px] text-black;
+  }
+
+  .s-subscribe__description {
+    @apply p-10 text-18 font-normal leading-[27px] tracking-[0.2px] text-[#5c5c5c];
+
+    * {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .s-subscribe__form {
+    @apply w-full max-w-483;
+    @apply sm-laptopm:max-w-471;
+  }
+
+  .s-subscribe__fields {
+    @apply flex flex-col gap-12;
+    @apply sm-laptopm:flex-row sm-laptopm:items-start sm-laptopm:gap-10;
+  }
+
+  .s-subscribe__field {
+    @apply min-w-0 flex-1;
+  }
+
+  .s-subscribe__status {
+    @apply pt-16 text-center text-15 leading-[24px] text-[#5c5c5c];
+  }
+}

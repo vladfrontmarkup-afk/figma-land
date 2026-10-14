@@ -1,0 +1,15 @@
+@layer base {
+  .c-portfolio-banner {
+    @apply px-16 py-10 text-white;
+    background: linear-gradient(180deg, #071317, #09161a);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .c-portfolio-banner__inner {
+    @apply flex items-center justify-center;
+  }
+
+  .c-portfolio-banner__icon {
+    @apply block size-18 shrink-0;
+  }
+}

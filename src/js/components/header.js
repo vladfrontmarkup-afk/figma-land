@@ -8,6 +8,9 @@ export function initHeader() {
   const desktop = window.matchMedia('(min-width: 992px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const inner = header.querySelector('.o-header__inner');
+  const portfolioBanner = header.querySelector('.js--portfolio-banner');
+  let expandedHeight = 0;
+  let bannerHeight = -1;
   let open = false;
   let closing = false;
   let closeTimer;
@@ -18,12 +21,24 @@ export function initHeader() {
   });
 
   const measureHeader = () => {
-    const height = inner.getBoundingClientRect().height;
-    if (!header.classList.contains('o-header--scrolled')) {
-      document.documentElement.style.setProperty('--header-offset', `${height}px`);
+    const nextBannerHeight = portfolioBanner?.getBoundingClientRect().height ?? 0;
+    const padding = parseFloat(getComputedStyle(header).getPropertyValue('--header-padding-y'));
+    // Reserve the expanded header space without reading its animated padding or scale.
+    const contentHeight = Math.max(...[...inner.children]
+      .filter((element) => getComputedStyle(element).position !== 'absolute')
+      .map((element) => element.getBoundingClientRect().height));
+    const nextExpandedHeight = Math.ceil(nextBannerHeight + contentHeight + padding * 2);
+
+    if (nextBannerHeight !== bannerHeight) {
+      bannerHeight = nextBannerHeight;
+      header.style.setProperty('--portfolio-banner-height', `${bannerHeight}px`);
+    }
+    if (nextExpandedHeight !== expandedHeight) {
+      expandedHeight = nextExpandedHeight;
+      document.documentElement.style.setProperty('--header-offset', `${expandedHeight}px`);
     }
   };
-  if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(inner);
+  if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
   else window.addEventListener('resize', measureHeader);
 
   const updateScroll = () => {

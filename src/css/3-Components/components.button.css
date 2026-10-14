@@ -102,4 +102,23 @@
       }
     }
   }
+
+  .c-button__portfolio {
+    @apply gap-8 rounded-[14px] border px-20 py-6 text-14 font-bold leading-[24px] transition-[box-shadow,translate,filter] duration-300;
+    @apply tablet:text-16 motion-reduce:transition-none;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #5bffe0, #36f0d0 45%, #14c4b0);
+    border-color: #49f4d2;
+    color: #041012;
+    box-shadow: 0 10px 24px rgb(40 230 200 / 0.22), 0 0 32px rgb(40 230 200 / 0.12);
+
+    &:hover {
+      @apply -translate-y-1 brightness-110 motion-reduce:translate-y-0;
+      box-shadow: 0 0 16px rgb(73 244 210 / 0.55), 0 0 40px rgb(73 244 210 / 0.28), 0 10px 24px rgb(40 230 200 / 0.22);
+    }
+
+    &:focus-visible {
+      @apply outline-2 outline-offset-4 outline-[#49f4d2];
+    }
+  }
 }

@@ -1,13 +1,95 @@
-@layer components {
+@layer base {
   .c-button {
-    @apply inline-flex items-center justify-center rounded-lg bg-black font-semibold text-white cursor-pointer p-20 text-20;
+    @apply inline-flex max-w-full shrink-0 items-center justify-center gap-10 text-center align-middle font-default text-16 font-medium leading-10 tracking-[0.2px] no-underline cursor-pointer;
+    @apply transition-[background-color,color,border-color,box-shadow,opacity] duration-300;
 
-    &:hover {
-      @apply opacity-75;
-    }
-    
     &:focus-visible {
-      @apply outline-2 outline-offset-4 outline-black;
+      @apply outline-2 outline-offset-4 outline-current;
     }
+
+    &:disabled,
+    &[aria-disabled="true"] {
+      @apply cursor-not-allowed opacity-50;
+    }
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply opacity-80;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      @apply transition-none;
+    }
+  }
+
+  .c-button__primary,
+  .c-button__secondary,
+  .c-button__outline,
+  .c-button__ghost {
+    @apply min-h-52 rounded-[39px] px-46 py-18;
+  }
+
+  .c-button__primary {
+    @apply border-0 bg-primary text-white;
+  }
+
+  /* The exported secondary instances retain the primary fill. */
+  .c-button__secondary {
+    @apply border border-solid border-[#30d7ba] bg-primary px-45 py-17 text-[#30d7ba];
+  }
+
+  .c-button__outline {
+    @apply border border-solid border-white bg-transparent px-45 py-17 text-white;
+  }
+
+  .c-button__ghost {
+    @apply border-0 bg-transparent text-white;
+  }
+
+  .c-button__shadow {
+    @apply shadow-[0_4px_31px_0_rgba(0,0,0,0.15)];
+  }
+
+  /* Sign up: 120px on mobile and 153px on desktop with the design labels. */
+  .c-button__compact {
+    @apply px-28;
+    @apply laptop:px-45;
+  }
+
+  .c-button__hero {
+    @apply px-80;
+    @apply laptop:px-46;
+  }
+
+  .c-button__pricing {
+    @apply px-82;
+  }
+
+  /* Mobile feature CTAs keep their design width within the available space. */
+  .c-button__wide {
+    @apply w-338;
+    @apply laptop:w-auto;
+  }
+
+  .c-button__wide-secondary {
+    @apply w-343;
+    @apply laptop:w-auto;
+  }
+
+  /* The final mobile CTA uses Roboto and a taller button. */
+  .c-button__large {
+    @apply min-h-76 w-294 px-30 py-30 font-secondary;
+    @apply laptop:min-h-52 laptop:w-auto laptop:px-46 laptop:py-18 laptop:font-default;
+  }
+
+  .c-button__secondary.c-button__large {
+    @apply w-281 px-29 py-29;
+    @apply laptop:w-auto laptop:px-45 laptop:py-17;
+  }
+
+  .c-button__subscribe {
+    @apply min-h-62 w-full rounded-[6px] border-0 bg-[#2271ef] px-30 py-23 text-white;
+    @apply laptop:min-h-52 laptop:w-auto laptop:rounded-[39px] laptop:bg-primary laptop:px-46 laptop:py-18;
   }
 }

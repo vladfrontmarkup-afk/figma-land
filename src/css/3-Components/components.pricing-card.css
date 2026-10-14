@@ -1,0 +1,67 @@
+@layer base {
+  .c-pricing-card {
+    @apply flex min-w-0 w-full flex-col items-center gap-30 rounded-[10px] bg-white p-[clamp(20px,7.65vw,40px)] text-center shadow-[inset_0_0_0_1px_#dedede];
+    @apply tablet:flex-[0_1_calc((100%-33px)/2)];
+    @apply sm-laptopm:max-w-335 sm-laptopm:flex-1 sm-laptopm:p-[clamp(20px,2.6vw,40px)];
+    @apply desktop:p-40;
+  }
+
+  .c-pricing-card__heading {
+    @apply w-full;
+  }
+
+  .c-pricing-card__title {
+    @apply p-10 text-[clamp(24px,8vw,30px)] font-bold leading-[33px] tracking-[0.1px] text-black;
+    @apply sm-laptopm:text-30;
+  }
+
+  .c-pricing-card__description {
+    @apply px-10 font-secondary text-12 font-bold leading-[18px] tracking-[0.1px] text-[#5c5c5c];
+
+    * {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .c-pricing-card__image {
+    @apply relative mx-auto aspect-[262/266] w-full max-w-262;
+    @apply sm-laptopm:aspect-[255/448] sm-laptopm:max-w-255;
+
+    img {
+      @apply absolute inset-0 block h-full w-full object-contain;
+    }
+  }
+
+  .c-pricing-card__price {
+    @apply flex items-center justify-center;
+  }
+
+  .c-pricing-card__amount {
+    @apply px-10 text-55 font-black leading-[66px] tracking-[0.2px] text-[#30d7ba];
+  }
+
+  .c-pricing-card__currency {
+    @apply block text-left text-30 font-bold leading-[33px] tracking-[0.1px] text-[#30d7ba];
+  }
+
+  .c-pricing-card__period {
+    @apply block pb-10 text-left font-secondary text-12 font-bold leading-[18px] tracking-[0.1px] text-[#5c5c5c];
+  }
+
+  .c-pricing-card__features {
+    @apply m-0 w-full list-none p-0 text-15 font-normal leading-[27px] tracking-[0.2px] text-black;
+
+    li {
+      @apply p-10;
+    }
+  }
+
+  .c-pricing-card__feature--unavailable {
+    @apply text-[#5c5c5c];
+  }
+
+  .c-pricing-card__actions {
+    @apply mt-auto flex w-full justify-center;
+  }
+}

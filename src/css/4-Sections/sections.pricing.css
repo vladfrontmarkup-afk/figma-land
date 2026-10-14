@@ -1,0 +1,28 @@
+@layer base {
+  .s-pricing {
+    @apply bg-white py-50;
+  }
+
+  .s-pricing__title {
+    @apply mx-auto max-w-360 p-10 text-center text-[clamp(38px,10vw,46px)] font-medium leading-[1.23913] tracking-[0.2px] text-black;
+    @apply mobile:max-w-none;
+    @apply sm-laptopm:p-0 sm-laptopm:text-46 sm-laptopm:leading-[57px];
+  }
+
+  .s-pricing__description {
+    @apply mx-auto mt-12 max-w-301 px-10 text-center text-18 font-normal leading-[27px] tracking-[0.2px] text-[#5c5c5c];
+    @apply mobile:max-w-490;
+    @apply sm-laptopm:mt-30 sm-laptopm:max-w-510;
+
+    * {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .s-pricing__cards {
+    @apply mx-auto mt-12 flex max-w-1071 flex-col items-center gap-33 py-53;
+    @apply tablet:flex-row tablet:flex-wrap tablet:items-stretch tablet:justify-center;
+    @apply sm-laptopm:mt-30 sm-laptopm:flex-nowrap sm-laptopm:py-30;
+  }
+}

@@ -2,9 +2,11 @@
 @import "./3-Components/components.button.css";
 @import "./3-Components/components.animated-gradient.css";
 @import "./3-Components/components.feature-card.css";
+@import "./3-Components/components.pricing-card.css";
 @import "./4-Sections/sections.hero.css";
 @import "./4-Sections/sections.features.css";
 @import "./4-Sections/sections.content.css";
+@import "./4-Sections/sections.pricing.css";
 @import "./5-Organisms/organisms.header.css";
 
 @source "../../index.html";

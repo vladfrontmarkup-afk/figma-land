@@ -90,7 +90,7 @@
   }
 
   .c-button__pricing {
-    @apply px-82;
+    @apply w-full max-w-251 px-20;
   }
 
   .c-button__content {

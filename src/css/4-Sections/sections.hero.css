@@ -2,30 +2,8 @@
   .s-hero {
     --hero-gradient-duration: 4s;
     @apply relative isolate overflow-hidden text-white;
-    background: linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
+    --gradient-duration: var(--hero-gradient-duration);
 
-    &::before {
-      @apply pointer-events-none absolute top-1/2 left-1/2 -z-10;
-      content: "";
-      width: var(--hero-gradient-size, 200vmax);
-      height: var(--hero-gradient-size, 200vmax);
-      background:
-        radial-gradient(ellipse at 15% 75%, #37bda6 0%, transparent 60%),
-        radial-gradient(ellipse at 85% 25%, #cb1ae8 0%, transparent 60%),
-        linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
-      translate: -52% -48%;
-      rotate: -8deg;
-      scale: 1.03;
-      animation:
-        hero-gradient var(--hero-gradient-duration) ease-in-out infinite alternate paused,
-        hero-gradient-rotation calc(var(--hero-gradient-duration) * 4) linear infinite paused;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &::before {
-        animation: none;
-      }
-    }
   }
 
   .s-hero__content {
@@ -77,23 +55,4 @@
     }
   }
 
-  @keyframes hero-gradient {
-    0% {
-      translate: -52% -48%;
-      scale: 1.03;
-    }
-    50% {
-      translate: -48% -52%;
-      scale: 1.06;
-    }
-    100% {
-      translate: -51% -49%;
-      scale: 1.03;
-    }
-  }
-
-  @keyframes hero-gradient-rotation {
-    from { rotate: -8deg; }
-    to { rotate: 352deg; }
-  }
 }

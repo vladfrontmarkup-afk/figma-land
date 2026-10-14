@@ -72,7 +72,7 @@
   }
 
   .c-feature-card__highlight {
-    background: linear-gradient(35deg, #37bda6 0%, #cb1ae8 100%);
+    --gradient-duration: 4s;
     @apply sm-laptopm:max-w-none;
 
 

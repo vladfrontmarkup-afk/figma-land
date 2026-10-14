@@ -69,5 +69,22 @@
 
   .o-footer__social {
     @apply flex h-44 w-44 items-center justify-center rounded-[6px] text-white;
+    @apply transition-[background-color,color,translate] duration-300 ease-out;
+
+    &:hover {
+      @apply -translate-y-2 bg-white text-[#112d57];
+    }
+
+    &:focus-visible {
+      @apply outline-2 outline-offset-4 outline-white;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      @apply transition-none;
+
+      &:hover {
+        @apply translate-y-0;
+      }
+    }
   }
 }

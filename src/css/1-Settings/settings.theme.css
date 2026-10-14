@@ -1,0 +1,39 @@
+@theme {
+  --spacing: 1px;
+
+  /* Breakpoints */
+	--breakpoint-*: initial;
+	--breakpoint-mobile: 540px;
+	--breakpoint-tablet: 768px;
+	--breakpoint-sm-laptopm: 992px;
+	--breakpoint-laptop: 1024px;
+	--breakpoint-desktop: 1300px;
+	--breakpoint-l-desktop: 1440px;
+	--breakpoint-large: 1680px;
+
+  /* Colors */
+	--color-*: initial;
+	--color-current: currentColor;
+	--color-transparent: transparent;
+	--color-black: #060606;
+	--color-white: #ffffff;
+  --color-yellow: #f1df18;
+  
+  /* Font families */
+  --font-default: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Font sizes */
+  --text-*: initial;
+  --text-base: 16px;
+ 
+  /* Line heights */
+  --leading-10: 1;
+  --leading-11: 1.1;
+  --leading-115: 1.15;
+  --leading-12: 1.2;
+  --leading-125: 1.25;
+
+  /* Border radius */
+	--radius-full: 100%;
+}

@@ -1,0 +1,13 @@
+@layer components {
+  .c-button {
+    @apply inline-flex items-center justify-center rounded-lg bg-black font-semibold text-white cursor-pointer p-20 text-20;
+
+    &:hover {
+      @apply opacity-75;
+    }
+    
+    &:focus-visible {
+      @apply outline-2 outline-offset-4 outline-black;
+    }
+  }
+}

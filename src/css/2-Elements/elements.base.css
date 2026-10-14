@@ -1,0 +1,18 @@
+@layer base {
+  /* Preserve the previous body size: text-2md was 24px. */
+  body {
+    @apply font-default text-24 text-black;
+  }
+
+  ::selection {
+    background: #000; color: #fff;
+  }
+
+  p {
+    @apply text-base leading-15;
+  }
+
+  p + p {
+    margin-top: 16px;
+  }
+}

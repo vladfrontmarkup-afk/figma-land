@@ -1,0 +1,19 @@
+/* Numeric font sizes: text-20 = 20px, text-32 = 32px, etc.
+   Works in HTML, responsive variants and @apply. */
+@utility text-* {
+  font-size: calc(--value(integer) * 1px);
+}
+
+@utility container {
+  width: 100%;
+  max-width: 1272px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@utility container-lg {
+  width: 100%;
+  max-width: 1372px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}

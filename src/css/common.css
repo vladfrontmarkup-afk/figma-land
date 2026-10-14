@@ -1,0 +1,7 @@
+/* Shared foundation. Page styles choose their own components and sections. */
+@import "tailwindcss" source(none);
+@import "./1-Settings/settings.theme.css";
+@import "./1-Settings/settings.fonts.css";
+@import "./2-Elements/elements.base.css";
+@import "./2-Elements/elements.headings.css";
+@import "./6-Utilities/utilities.css";

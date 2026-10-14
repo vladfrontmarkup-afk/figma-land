@@ -1,0 +1,30 @@
+{
+  "name": "client-company-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website for Client Company",
+  "author": {
+    "name": "Vladyslav Kolotko",
+    "url": "https://your-portfolio.com"
+  },
+  "engines": {
+    "node": "^22.12.0 || >=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "watch": "vite",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "check": "node --check vite.config.js && node --check src/js/app.js && vite build"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "tailwindcss": "4.3.3",
+    "vite": "8.3.1"
+  },
+  "dependencies": {
+    "jquery": "4.0.0"
+  }
+}

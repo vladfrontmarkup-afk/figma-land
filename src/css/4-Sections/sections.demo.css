@@ -1,0 +1,17 @@
+@layer components {
+  .s-demo {
+    @apply py-48;
+  }
+
+  .s-demo__title {
+    @apply mb-16 text-32 font-semibold leading-tight;
+  }
+
+  .s-demo__description {
+    @apply mb-24 text-20 leading-15;
+  }
+
+  .s-demo__result {
+    @apply mt-16 text-20;
+  }
+}

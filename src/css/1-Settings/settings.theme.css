@@ -15,13 +15,16 @@
 	--color-*: initial;
 	--color-current: currentColor;
 	--color-transparent: transparent;
-	--color-black: #060606;
+	--color-black: #000000;
 	--color-white: #ffffff;
-  --color-yellow: #f1df18;
+  --color-primary: #4737ff;
+  --color-secondary: #03d6f3;
+  --color-tertiary: #0e2846;
   
   /* Font families */
-  --font-default: "Inter", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-default: "Poppins", "Roboto", sans-serif;
+  --font-sans: "Poppins", "Roboto", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
 
   /* Font sizes */
   --text-*: initial;

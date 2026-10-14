@@ -1,5 +1,6 @@
 node_modules/
 dist/
+figma/
 .vite/
 *.log
 .env

@@ -24,6 +24,7 @@
   }
 
   .c-button__primary,
+  .c-button__light,
   .c-button__secondary,
   .c-button__outline,
   .c-button__ghost {
@@ -34,6 +35,15 @@
     @apply border-0 bg-primary text-white;
   }
 
+  .c-button__light {
+    @apply border-0 bg-white text-[#112d57];
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-[#112d57] text-white opacity-100 shadow-[0_8px_24px_rgba(17,45,87,0.3)];
+      }
+    }
+  }
+
   /* The exported secondary instances retain the primary fill. */
   .c-button__secondary {
     @apply border border-solid border-[#30d7ba] bg-primary px-45 py-17 text-[#30d7ba];
@@ -41,6 +51,12 @@
 
   .c-button__outline {
     @apply border border-solid border-white bg-transparent px-45 py-17 text-white;
+
+    @media (hover: hover) {
+      &:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply bg-white text-[#112d57] opacity-100;
+      }
+    }
   }
 
   .c-button__ghost {
@@ -53,13 +69,13 @@
 
   /* Sign up: 120px on mobile and 153px on desktop with the design labels. */
   .c-button__compact {
-    @apply px-28;
-    @apply laptop:px-45;
+    @apply px-[clamp(14px,5.35vw,28px)];
+    @apply sm-laptopm:px-45;
   }
 
   .c-button__hero {
     @apply px-80;
-    @apply laptop:px-46;
+    @apply tablet:px-46;
   }
 
   .c-button__pricing {

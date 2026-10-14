@@ -1,4 +1,8 @@
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+
   /* Preserve the previous body size: text-2md was 24px. */
   body {
     @apply font-default text-24 text-black;

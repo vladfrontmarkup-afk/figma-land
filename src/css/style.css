@@ -1,8 +1,9 @@
 @import "./common.css";
 @import "./3-Components/components.button.css";
-@import "./4-Sections/sections.section.css";
-@import "./5-Organisms/organisms.css";
+@import "./4-Sections/sections.hero.css";
+@import "./5-Organisms/organisms.header.css";
 
 @source "../../index.html";
 @source "../js/app.js";
-@source "../js/components/example-section.js";
+@source "../js/components/header.js";
+@source "../js/components/hero.js";

@@ -2,7 +2,7 @@ export function initHeader() {
   const header = document.querySelector('.js--header');
   const toggle = header?.querySelector('.js--menu-toggle');
   const nav = header?.querySelector('.js--primary-nav');
-  const content = document.querySelector('.js--main');
+  const content = document.querySelectorAll('.js--main, .js--footer');
   if (!header || !toggle || !nav) return;
 
   const desktop = window.matchMedia('(min-width: 992px)');
@@ -42,7 +42,7 @@ export function initHeader() {
     closing = false;
     header.classList.remove('o-header--closing');
     document.body.classList.remove('is-menu-open');
-    if (content) content.inert = false;
+    content.forEach((element) => { element.inert = false; });
     updateScroll();
   };
 
@@ -59,7 +59,7 @@ export function initHeader() {
 
     if (open) {
       document.body.classList.add('is-menu-open');
-      if (content) content.inert = true;
+      content.forEach((element) => { element.inert = true; });
       window.requestAnimationFrame(() => {
         if (open) nav.querySelector('a')?.focus({ preventScroll: true });
       });

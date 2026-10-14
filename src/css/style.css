@@ -1,5 +1,6 @@
 @import "./common.css";
 @import "./3-Components/components.button.css";
+@import "./3-Components/components.link.css";
 @import "./3-Components/components.input.css";
 @import "./3-Components/components.animated-gradient.css";
 @import "./3-Components/components.feature-card.css";
@@ -10,6 +11,7 @@
 @import "./4-Sections/sections.pricing.css";
 @import "./4-Sections/sections.subscribe.css";
 @import "./5-Organisms/organisms.header.css";
+@import "./5-Organisms/organisms.footer.css";
 
 @source "../../index.html";
 @source "../js/app.js";

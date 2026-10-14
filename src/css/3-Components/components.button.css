@@ -74,6 +74,12 @@
     }
   }
 
+  .c-button__primary:focus-visible,
+  .c-button__secondary:focus-visible,
+  .c-button__subscribe:focus-visible {
+    @apply outline-[#112d57];
+  }
+
   .c-button__shadow {
     @apply shadow-[0_4px_31px_0_rgba(0,0,0,0.15)];
   }

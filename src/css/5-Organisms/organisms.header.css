@@ -80,25 +80,8 @@
   }
 
   .o-header__link {
-    @apply relative shrink-0 p-10 text-24 font-normal leading-[27px] tracking-[0.2px] text-white;
+    @apply shrink-0 p-10 text-24 font-normal leading-[27px] tracking-[0.2px] text-white;
     @apply sm-laptopm:text-15;
-
-    &::after {
-      @apply pointer-events-none absolute right-10 bottom-4 left-10 h-2 rounded-[2px] bg-current transition-transform duration-300;
-      content: "";
-      transform: scaleX(0);
-      transform-origin: right;
-    }
-
-    &:hover::after,
-    &:focus-visible::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    &:focus-visible {
-      @apply outline-2 outline-offset-4 outline-white;
-    }
   }
 
   .o-header--enhanced .o-header__link {
@@ -201,8 +184,7 @@
     .o-header__logo-image,
     .o-header__nav,
     .o-header__toggle-line,
-    .o-header__link,
-    .o-header__link::after {
+    .o-header__link {
       @apply transition-none;
     }
 

@@ -1,0 +1,30 @@
+@layer base {
+  .c-link {
+    @apply relative;
+
+    &::after {
+      @apply pointer-events-none absolute bottom-4 h-2 rounded-[2px] bg-current transition-transform duration-300;
+      content: "";
+      right: var(--link-underline-inset, 10px);
+      left: var(--link-underline-inset, 10px);
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    &:focus-visible {
+      @apply outline-2 outline-offset-4 outline-current;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &::after {
+        @apply transition-none;
+      }
+    }
+  }
+}

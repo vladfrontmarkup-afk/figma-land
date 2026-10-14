@@ -1,0 +1,73 @@
+@layer base {
+  .o-footer {
+    @apply bg-tertiary py-62 text-white;
+  }
+
+  .o-footer__inner {
+    @apply mx-auto flex max-w-1134 flex-col gap-48;
+    @apply sm-laptopm:flex-row sm-laptopm:items-center sm-laptopm:gap-40;
+    @apply desktop:gap-60;
+  }
+
+  .o-footer__navigation {
+    @apply flex min-w-0 flex-col gap-32;
+    @apply sm-laptopm:flex-[1_1_317px] sm-laptopm:gap-56;
+  }
+
+  .o-footer__links {
+    @apply flex flex-wrap gap-x-24 gap-y-16;
+  }
+
+  .o-footer__list {
+    @apply m-0 flex min-w-0 flex-[1_1_calc((100%-24px)/2)] list-none flex-col p-0;
+  }
+
+  .o-footer__link {
+    @apply inline-block max-w-full px-10 py-10 text-15 font-normal leading-[27px] tracking-[0.2px] text-white;
+    overflow-wrap: anywhere;
+  }
+
+  .o-footer__caption {
+    @apply px-10 font-secondary text-12 font-bold leading-[18px] tracking-[0.1px];
+
+    * {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .o-footer__map {
+    @apply relative aspect-[334/247] w-full overflow-hidden rounded-[6px] bg-[#efefef];
+    @apply sm-laptopm:max-w-334 sm-laptopm:flex-[1_1_334px];
+
+    iframe {
+      @apply absolute inset-0 block h-full w-full border-0;
+    }
+  }
+
+  .o-footer__contacts {
+    @apply flex min-w-0 flex-col gap-10 not-italic;
+    @apply sm-laptopm:flex-[1_1_309px];
+  }
+
+  .o-footer__contact {
+    @apply flex min-w-0 items-center gap-10;
+
+    svg {
+      @apply block shrink-0;
+    }
+
+    .o-footer__link {
+      --link-underline-inset: 0px;
+      @apply min-w-0 px-0;
+    }
+  }
+
+  .o-footer__socials {
+    @apply flex flex-wrap items-center gap-24 py-20;
+  }
+
+  .o-footer__social {
+    @apply flex h-44 w-44 items-center justify-center rounded-[6px] text-white;
+  }
+}

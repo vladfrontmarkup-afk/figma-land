@@ -19,6 +19,9 @@
     "preview": "vite preview",
     "studio:dev": "npm --prefix studio run dev --",
     "studio:build": "npm --prefix studio run build",
+    "cloudflare:build": "node cloudflare/build.mjs",
+    "cloudflare:test": "node --test cloudflare/worker.test.js",
+    "cloudflare:deploy": "npm run cloudflare:build && npm run cloudflare:test && npx --yes wrangler@4.151.0 deploy --config cloudflare/wrangler.jsonc",
     "test": "node --test build/sanity/*.test.js",
     "check": "node --check vite.config.js && node --check src/js/app.js && npm test && vite build"
   },

@@ -1,0 +1,20 @@
+{
+  "name": "figma-land-independent",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-15",
+  "workers_dev": true,
+  "alias": { "cheerio": "cheerio/slim" },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none"
+  },
+  "vars": {
+    "SANITY_PROJECT_ID": "n9ojwqp4",
+    "SANITY_DATASET": "production"
+  },
+  "kv_namespaces": [
+    { "binding": "SITE_HTML", "id": "9e4837cc03e2428e8f5d7b5f15e7c4f7" }
+  ]
+}

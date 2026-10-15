@@ -46,6 +46,42 @@ Open [http://localhost:8001](http://localhost:8001). Vite updates the page when 
 - `src/fonts/`: local Poppins and Roboto WOFF2 files and their licenses.
 - `vite.config.js`: development ports, the HTML entry point and production asset paths.
 
+## Sanity Studio
+
+The content editor is a separate application in `studio/`, connected to project `n9ojwqp4`
+and the public `production` dataset. The existing landing page still uses its local HTML;
+connecting frontend rendering and deployment webhooks is a separate integration step.
+
+```sh
+npm --prefix studio ci
+npm run studio:dev
+```
+
+Open [http://localhost:3333](http://localhost:3333) and sign in with your Sanity account.
+Edit global navigation and contacts in **Site settings**, section content in **Landing page**,
+and individual plans in **Pricing plans**. Images support alternative text and hotspot selection.
+The subscription form still needs a separate subscription service.
+
+After changing schemas, validate the Studio and deploy the schema manifest:
+
+```sh
+npm --prefix studio run check
+npm --prefix studio run schema:deploy
+```
+
+Initial content can be imported from the current `index.html` and local images after CLI login:
+
+```sh
+cd studio
+npx sanity login
+npm run seed
+```
+
+The seed command creates missing starter documents and preserves existing content.
+Studio dependencies and build output are separate from the landing page. Commit both lockfiles.
+Never store authentication tokens in tracked files or browser code. The public dataset is for
+website content, not subscription addresses or private information.
+
 ## Behavior
 
 - The fixed header shrinks on scroll. Its mobile menu supports Escape, keyboard focus management, scroll locking and an inert page background.

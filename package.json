@@ -17,6 +17,8 @@
     "build": "vite build",
     "build:watch": "vite build --watch",
     "preview": "vite preview",
+    "studio:dev": "npm --prefix studio run dev --",
+    "studio:build": "npm --prefix studio run build",
     "check": "node --check vite.config.js && node --check src/js/app.js && vite build"
   },
   "devDependencies": {

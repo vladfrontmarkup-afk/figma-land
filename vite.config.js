@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
+import { sanityContent } from './build/sanity/plugin.js';
 
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 const assetTypes = {
@@ -41,7 +42,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [tailwindcss()],
+  plugins: [sanityContent(), tailwindcss()],
   server: { host: '0.0.0.0', port: 8001, strictPort: true },
   preview: { host: '0.0.0.0', port: 8002, strictPort: true },
 });

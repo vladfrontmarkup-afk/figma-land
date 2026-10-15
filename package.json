@@ -19,10 +19,15 @@
     "preview": "vite preview",
     "studio:dev": "npm --prefix studio run dev --",
     "studio:build": "npm --prefix studio run build",
-    "check": "node --check vite.config.js && node --check src/js/app.js && vite build"
+    "test": "node --test build/sanity/*.test.js",
+    "check": "node --check vite.config.js && node --check src/js/app.js && npm test && vite build"
   },
   "devDependencies": {
+    "@sanity/client": "^8.9.0",
+    "@sanity/image-url": "^2.1.1",
     "@tailwindcss/vite": "4.3.3",
+    "cheerio": "^1.2.0",
+    "groq": "^6.19.0",
     "tailwindcss": "4.3.3",
     "vite": "8.3.1"
   }

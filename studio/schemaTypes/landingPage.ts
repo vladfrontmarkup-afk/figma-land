@@ -12,7 +12,9 @@ export const landingPage = defineType({
     {name: 'subscribe', title: 'Subscription'},
   ],
   fields: [
-    defineField({name: 'heroTitle', type: 'string', group: 'hero', validation: (rule) => rule.required()}),
+    defineField({name: 'heroTitle', type: 'text', rows: 2, group: 'hero',
+      description: 'Use a newline for an explicit line break; otherwise text wraps naturally.',
+      validation: (rule) => rule.required()}),
     defineField({name: 'heroDescription', type: 'text', rows: 3, group: 'hero'}),
     defineField({name: 'heroImage', type: 'contentImage', group: 'hero'}),
     defineField({name: 'heroMobileImage', type: 'contentImage', group: 'hero'}),
@@ -29,7 +31,10 @@ export const landingPage = defineType({
       ], preview: {select: {title: 'title'}},
     })]}),
     defineField({name: 'contentSections', type: 'array', group: 'content',
-      of: [defineArrayMember({type: 'contentSection'})], validation: (rule) => rule.max(3)}),
+      of: [defineArrayMember({type: 'contentSection'})], validation: (rule) => rule.max(3).custom((items) => {
+        const anchors = (items || []).map((item) => (item as {anchor?: string}).anchor).filter(Boolean)
+        return new Set(anchors).size === anchors.length || 'Each section anchor can be used only once.'
+      })}),
     defineField({name: 'pricingTitle', type: 'string', group: 'pricing'}),
     defineField({name: 'pricingDescription', type: 'text', rows: 2, group: 'pricing'}),
     defineField({name: 'pricingPlans', type: 'array', group: 'pricing',

@@ -27,7 +27,8 @@ Open [http://localhost:8001](http://localhost:8001). Vite updates the page when 
 | `npm run build` | Build the landing page into `dist/`. |
 | `npm run build:watch` | Rebuild production output when source files change. |
 | `npm run preview` | Serve the production build at [http://localhost:8002](http://localhost:8002). |
-| `npm run check` | Check entry/config JavaScript syntax and run the production build. |
+| `npm test` | Test CMS rendering, safe text/links, responsive content, and image handling. |
+| `npm run check` | Check JavaScript syntax, run CMS rendering tests and the production build. |
 
 ## Structure
 
@@ -45,12 +46,14 @@ Open [http://localhost:8001](http://localhost:8001). Vite updates the page when 
 - `src/images/`: WebP assets and SVG icon sprites.
 - `src/fonts/`: local Poppins and Roboto WOFF2 files and their licenses.
 - `vite.config.js`: development ports, the HTML entry point and production asset paths.
+- `build/sanity/`: published content query, HTML renderer, Vite plugin and rendering tests.
 
 ## Sanity Studio
 
 The content editor is a separate application in `studio/`, connected to project `n9ojwqp4`
-and the public `production` dataset. The existing landing page still uses its local HTML;
-connecting frontend rendering and deployment webhooks is a separate integration step.
+and the public `production` dataset. A Vite plugin fetches published content and renders it
+into the HTML before bundling. The browser receives complete HTML and makes no CMS API requests.
+Existing CSS, animations, section IDs, and responsive layouts stay in the local template.
 
 ```sh
 npm --prefix studio ci
@@ -81,6 +84,31 @@ The seed command creates missing starter documents and preserves existing conten
 Studio dependencies and build output are separate from the landing page. Commit both lockfiles.
 Never store authentication tokens in tracked files or browser code. The public dataset is for
 website content, not subscription addresses or private information.
+
+### Frontend content updates
+
+Edit content in Studio and click **Publish**, then run `npm run build` (or `npm run check`).
+Drafts are never included. In development, refresh the page after publishing; content is cached
+for up to five seconds. Production pages change only after rebuilding and deploying `dist/`.
+A hosting webhook can automate that workflow once the hosting provider is selected.
+
+The public project identifiers default to this project. Copy `.env.example` to `.env` to
+override `SANITY_PROJECT_ID` or `SANITY_DATASET`. No read token is required for this public dataset.
+Requests use the uncached API so builds include the latest published content.
+A failed request or missing published singleton stops the build instead of deploying stale content.
+For explicit offline work with the original local HTML, set `SANITY_ENABLED=false` in `.env`.
+
+CMS text is escaped. Link destinations are checked, and page anchors retain smooth scrolling.
+Images use Sanity's image CDN with responsive sizes, crop data, alternative text, and reserved
+dimensions; optional images without a CMS asset use the local template fallback.
+Hero line breaks from the original design remain while its text is unchanged; edited headings
+wrap naturally and also support newline characters. Content section layout is selected by its
+fixed anchor (`workflow`, `operations`, `business`). Removing a section removes links to it.
+Social links match the existing icon labels: `Twitter`, `Facebook`, and `LinkedIn`.
+
+The footer navigation shares labels with the header; its grouping stays in the template.
+The logo, favicon, icon sprites, button styles, and map embed behavior remain code-owned.
+The subscription form still validates locally and requires a separate subscription service.
 
 ## Behavior
 

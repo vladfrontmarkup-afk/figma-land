@@ -1,0 +1,21 @@
+{
+  "type": "document",
+  "name": "Publish Figma Land on GitHub Pages",
+  "description": "Rebuild the personal website with published Figma Land content. Add a scoped GitHub Actions token to the Authorization header before enabling.",
+  "url": "https://api.github.com/repos/vladfrontmarkup-afk/vladfrontmarkup-afk.github.io/actions/workflows/deploy-site.yml/dispatches",
+  "dataset": "production",
+  "apiVersion": "v2025-02-19",
+  "httpMethod": "POST",
+  "includeDrafts": false,
+  "includeAllVersions": false,
+  "isDisabledByUser": true,
+  "rule": {
+    "on": ["create", "update", "delete"],
+    "filter": "_type in [\"siteSettings\", \"landingPage\", \"pricingPlan\"]",
+    "projection": "{\"ref\": \"main\"}"
+  },
+  "headers": {
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2026-03-10"
+  }
+}

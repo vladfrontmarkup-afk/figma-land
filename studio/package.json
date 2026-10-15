@@ -12,6 +12,7 @@
     "check": "tsc --noEmit && sanity build",
     "seed": "sanity exec scripts/seed.mjs --with-user-token",
     "schema:deploy": "sanity schemas deploy",
+    "webhook:setup": "sanity exec scripts/setup-webhook.mjs --with-user-token",
     "start": "sanity start"
   },
   "keywords": [

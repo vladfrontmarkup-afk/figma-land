@@ -90,7 +90,7 @@ website content, not subscription addresses or private information.
 Edit content in Studio and click **Publish**, then run `npm run build` (or `npm run check`).
 Drafts are never included. In development, refresh the page after publishing; content is cached
 for up to five seconds. Production pages change only after rebuilding and deploying `dist/`.
-A hosting webhook can automate that workflow once the hosting provider is selected.
+A Sanity webhook can trigger the GitHub Pages workflow described below.
 
 The public project identifiers default to this project. Copy `.env.example` to `.env` to
 override `SANITY_PROJECT_ID` or `SANITY_DATASET`. No read token is required for this public dataset.
@@ -121,6 +121,47 @@ The subscription form still validates locally and requires a separate subscripti
 - Pricing order buttons and social profile links remain placeholders. Contact details should be replaced with the site's final details before publishing.
 
 ## Production
+
+### GitHub Pages
+
+Public site: https://vladfrontmarkup-afk.github.io/figma-land/
+Hosted editor: https://vladfrontmarkup-figma-land.sanity.studio/
+
+`deployment/github-pages.yml` is installed as `.github/workflows/deploy-site.yml` in the
+separate `vladfrontmarkup-afk.github.io` repository. It checks out that complete website,
+builds this public source repository with published Sanity data, replaces only the staged
+`figma-land/` directory, and deploys the whole website artifact. Other projects remain included.
+The workflow does not commit generated output; the local/committed `figma-land/` folder is
+no longer the source of truth for the deployed Figma Land pages.
+
+One-time activation:
+
+1. Commit and push the workflow to `main` in `vladfrontmarkup-afk.github.io`.
+2. In that repository's **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**.
+3. Run **Actions → Publish website with Figma Land → Run workflow** on `main` and confirm success.
+4. Create a fine-grained GitHub personal access token scoped only to `vladfrontmarkup-afk.github.io`,
+   with repository **Actions: Read and write**. Set an expiry and renew it before it expires.
+5. Open Sanity Manage → project `n9ojwqp4` → API → Webhooks → **Publish Figma Land on GitHub Pages**.
+   Add the header `Authorization: Bearer YOUR_TOKEN`, save, and enable the webhook.
+   Enter the token directly in Sanity Manage; never put it in source files, URLs, or chat.
+6. Publish a content update in Studio, check the GitHub Actions run, then verify the public page.
+
+The webhook is initially disabled. Its tracked configuration is `studio/github-webhook.json`;
+it sends `{"ref":"main"}` to the workflow-dispatch endpoint, only for published website documents.
+Provision it after Sanity CLI login with `npm --prefix studio run webhook:setup`.
+Repeated provisioning preserves the existing hook and its private headers.
+
+The source defaults to `feature/sanity-integration`, because `main` does not yet contain the CMS
+integration. To switch after merging, set the website repository variable `FIGMA_LAND_SOURCE_REF`
+to `main` in Settings → Secrets and variables → Actions → Variables.
+Content publishing, a push to the website repository's `main`, or a manual workflow run rebuilds
+the website. A push only to the Figma Land source repository requires a subsequent manual run
+or content publication. Updates appear after Actions deployment completes, not instantly.
+
+To redeploy the editor after schema changes, run `npm --prefix studio run deploy`.
+Sanity account permissions protect editor access; published website content remains public.
+
+### Local production preview
 
 ```sh
 npm run check
